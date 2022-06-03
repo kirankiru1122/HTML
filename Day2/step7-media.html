@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media</title>
+</head>
+<body>
+    <video>
+        <source src="media/html5.mp4"/>
+        <source src="media/html5.webm"/>
+    </video>
+    <button onclick="playvideo()">play</button>
+    <button onclick="pausevideo()">pause</button>
+    <button onclick="stopvideo()">stop</button>
+    <script>
+       /* console.log("video/mp4", document.getElementsByTagName("video")[0].canPlayType('video/mp4') );
+        console.log("video/ogg", document.getElementsByTagName("video")[0].canPlayType('video/ogg') );
+        console.log("video/webm", document.getElementsByTagName("video")[0].canPlayType('video/webm') ); 
+        */ 
+       var si = null;
+       function setlog(){
+           document.getElementById("log").innerText= document.getElementsByTagName("video")[0].currentTime;
+       }
+       function playvideo(){
+           document.getElementsByTagName("video")[0].play();
+           si = setInterval(setlog,100);
+       }
+       function pausevideo(){
+           document.getElementsByTagName("video")[0].pause();
+       }
+       function stopvideo(){
+        document.getElementsByTagName("video")[0].currentTime=0;
+        document.getElementsByTagName("video")[0].pause();
+        clearInterval(si);
+        document.getElementById("log").innerText=0;
+       }
+    </script>
+</body>
+</html>
